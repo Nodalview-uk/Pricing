@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nodalview | Pricing Configurator</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA0lBMVEUAAABCi/dBifVAivRAifRBifRBifVBifVAifFCivRBifVBifVJku1BifVAifRBifVAivVAifVBifU7ietBifVBifRAgP9BifVDifNCifRCiPdBifRDiPM9ivVBifUQa/cTa/FDhfRBifUUbfQSbPMSbfIccf9CivZBifUSbPMUbPNGi/NCifUSbPMSbPMVaupBifUSbPQUbvNBifVCiPVBifUTbPM8h/ASbPNAj+8SbPJBivVBiPVBifVEiO5BifUSa/JCiPVAi/RBifUSbPP///8FY4+DAAAAQ3RSTlMAQt5IX9nd2zhZ/pwOtVvmTLaZDeBDDN9B2j7BWDLtHzcXrVn8jQlV691AFqv+mQzq3kGqTeVCEacQtkrk4w/ijElEB/tvFwAAAAFiS0dERY6zqFcAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfmCxwINTmS8ZAPAAAAwElEQVQ4y73UxxLCMAxFUUGooZsSeu+h997k//8mHAZImAFpx9vJc+YuDQAutwaOeby+1/yBx0sQ9VDYBhG0F30CxFj8DRJfAeoiSQPEVJoBKpKhAaKRZcAjQgLEXL5Ag8/9DRQ5UOIARMs0qFRrdRI0mq12p0sBKXt9c0ACORyNOxMKSDmdmXMSWJHFkgIqsloLEliR+JICUm5gK0iwU/f+wABH5AdQkSMD4CQYAKCdGaAi+hOsevYuzo/gatwA7oZ4tFPsQHOSAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTExLTI4VDA4OjUzOjU3KzAwOjAwekLvIgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0xMS0yOFQwODo1Mzo1NyswMDowMAsfV54AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAV3pUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0uTFAMTIESANMNkAyOzVCDL2NTIxMzEHMQHy4BIoEouAOoXEXTyQjWVAAAAAElFTkSuQmCC">
+  <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAkFBMVEUAAABBivZBifRAgP9DifRBifVBifVCiPZBivRBifU+ifNAiPRBi/ZBifVAifRVqv9BifVAhvJBifVBivZBiPZBifUSbPMre/JBifURbPISbPMTbfI/h/RBifUSbPMnefJBivUTa/JBifURa/NAi/NBifURbPRBiPNAivURbPMSbPMTa/JAivVBifUSbPP///8Hz3RMAAAALXRSTlMAknkERe3ukKHJKVyi93cDxyj2v1b7Zk3Nofd6efnHTsx5+Fgsy1wrypLuUZQbz/IaAAAAAWJLR0QvI9QgEQAAAAlwSFlzAAAHYQAAB2EBlcO4tgAAAAd0SU1FB+YLHAg1OOX2oJkAAABySURBVBjTbdDJEoJADEXRQKMMKiCTiijQyEzy/59nN+UmXd7NS51lACxbgMo5HFWuujz0AzUn1J13wEsYcUCMrwZgkhrw6y9kuQHF7c7hUT6rFwOid91woLKtJAOi7tNzGECEkgPAOO0wL7pVv0DYG3wBKyYcZLLqXR0AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMTEtMjhUMDg6NTM6NTYrMDA6MDDcNeSWAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTExLTI4VDA4OjUzOjU2KzAwOjAwrWhcKgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABXelRYdFJhdyBwcm9maWxlIHR5cGUgaXB0YwAAeJzj8gwIcVYoKMpPy8xJ5VIAAyMLLmMLEyMTS5MUAxMgRIA0w2QDI7NUIMvY1MjEzMQcxAfLgEigSi4A6hcRdPJCNZUAAAAASUVORK5CYII=">
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, sans-serif;
+      color: #1b2559;
+      background: #F4F8FF;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+    a { color: #3965ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3, .product-title, .tier-name, .summary-section-title,
+    .plan-label, .plan-badge, .price-amount, .feat-name, .model-opt {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ── Header ── */
+    .config-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 32px 0;
+    }
+    .config-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1b2559;
+      line-height: 1.2;
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ── Model Selector (Broker / Agency) ── */
+    .model-selector {
+      display: inline-flex;
+      background: #eef1fb;
+      border-radius: 14px;
+      padding: 5px;
+      gap: 4px;
+      margin-top: 22px;
+    }
+    .model-opt {
+      padding: 10px 24px;
+      border: none;
+      background: transparent;
+      font-size: 15px;
+      font-weight: 700;
+      color: #68769f;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .model-opt:hover { color: #1b2559; }
+    .model-opt.active {
+      background: #1b2559;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(27,37,89,.25);
+    }
+
+    /* ── Billing Selector ── */
+    .billing-selector {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #f0f2f8;
+      border-radius: 12px;
+      padding: 4px;
+    }
+    .billing-opt {
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #68769f;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .billing-opt:hover { color: #1b2559; }
+    .billing-opt.active {
+      background: #3965ff;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(57,101,255,.25);
+    }
+    .billing-opt.active .billing-badge { background: #fff; color: #3965ff; }
+    .billing-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 5px;
+      background: #1b2559;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+
+    /* ── Main Layout ── */
+    .config-layout {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── Product Cards ── */
+    .product-card {
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 0;
+      margin-bottom: 20px;
+      transition: border-color .2s, box-shadow .2s;
+      overflow: hidden;
+    }
+    .product-card.active { border-color: #3965ff; box-shadow: 0 0 0 1.5px #3965ff; }
+    .product-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+    }
+    .product-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1b2559;
+    }
+    .product-icon {
+      width: 44px; height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .product-label-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #a3aed0;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .included-badge { color: #3965ff; }
+
+    .switch-track {
+      width: 48px; height: 26px;
+      background: #cbd5e1;
+      border-radius: 13px;
+      position: relative;
+      cursor: pointer;
+      transition: background .2s;
+      flex-shrink: 0;
+    }
+    .switch-track.on { background: #3965ff; }
+    .switch-track .switch-thumb {
+      width: 22px; height: 22px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px; left: 2px;
+      transition: transform .2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,.15);
+    }
+    .switch-track.on .switch-thumb { transform: translateX(22px); }
+
+    .product-body {
+      padding: 0 32px 28px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .product-description {
+      font-size: 15px;
+      color: #68769f;
+      margin: 20px 0 0;
+      line-height: 1.6;
+    }
+
+    /* ── Tier Selector (Agency model) ── */
+    .tier-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .tier-option {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s;
+      text-align: center;
+    }
+    .tier-option:hover { border-color: #93b4ff; }
+    .tier-option.selected {
+      border-color: #3965ff;
+      box-shadow: 0 0 0 1.5px #3965ff;
+      background: #f0f4ff;
+    }
+    .tier-radio {
+      width: 20px; height: 20px;
+      border: 2px solid #cbd5e1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .tier-option.selected .tier-radio { border-color: #3965ff; }
+    .tier-option.selected .tier-radio::after {
+      content: '';
+      width: 10px; height: 10px;
+      background: #3965ff;
+      border-radius: 50%;
+    }
+    .tier-name { font-size: 15px; font-weight: 700; color: #1b2559; margin-bottom: 4px; }
+    .tier-detail { font-size: 13px; color: #a3aed0; line-height: 1.4; }
+    .tier-price { font-size: 13px; color: #3965ff; font-weight: 700; margin-top: 6px; }
+
+    /* ── Package detail (single Broker package per product) ── */
+    .package-detail {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border: 1.5px solid #3965ff;
+      border-radius: 14px;
+      padding: 18px 20px;
+      background: #f0f4ff;
+      margin-top: 20px;
+    }
+    .package-badges { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .pkg-badge {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .pkg-badge.assets { background: #3965ff; }
+    .pkg-badge.credits { background: #c084fc; }
+    .pkg-price { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: #1b2559; }
+
+    .shop-cta {
+      margin-top: 16px;
+      padding: 12px 18px;
+      background: #fff8eb;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── Summary Card ── */
+    .summary-card {
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px;
+      position: sticky;
+      top: 24px;
+    }
+    .summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .plan-label { font-size: 16px; color: #1b2559; font-weight: 700; }
+    .plan-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1b2559;
+    }
+    .plan-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: #f5a623;
+    }
+    .plan-dot.expert {
+      width: 24px; height: 16px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f5a623, #3965ff);
+    }
+    .price-display { margin-bottom: 20px; }
+    .price-amount {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      color: #1b2559;
+    }
+    .price-amount .currency { font-size: 32px; }
+    .price-amount .period { font-size: 16px; font-weight: 500; color: #a3aed0; margin-left: 6px; }
+    .price-exvat { font-size: 13px; color: #a3aed0; margin-top: 4px; text-transform: uppercase; letter-spacing: .3px; }
+    .price-strikethrough {
+      font-size: 20px; color: #a3aed0;
+      text-decoration: line-through;
+      margin-left: 10px; font-weight: 500;
+    }
+    .summary-divider { height: 1px; background: #e2e8f0; margin: 20px 0; }
+    .summary-section-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1b2559; }
+    .more-users-note {
+      font-size: 13px; color: #68769f; margin-bottom: 16px;
+    }
+    .more-users-note a { font-weight: 600; }
+    .enterprise-cta {
+      text-align: center; font-size: 14px; color: #68769f; margin-top: 16px;
+    }
+    .enterprise-cta a { font-weight: 700; }
+    .enterprise-card {
+      background: #1b2559;
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+    .enterprise-card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .enterprise-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .enterprise-card-desc {
+      font-size: 15px;
+      color: #a3aed0;
+      line-height: 1.5;
+    }
+    .enterprise-card-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #3965ff;
+      color: #fff;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .enterprise-card-btn:hover { background: #2b50d9; text-decoration: none; }
+
+    .included-list { list-style: none; margin-bottom: 20px; }
+    .included-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; padding: 4px 0; color: #1b2559;
+    }
+    .included-list li .check-link { color: #3965ff; text-decoration: underline; cursor: pointer; }
+    .check { color: #3965ff; font-size: 16px; flex-shrink: 0; font-weight: 700; }
+
+    .credits-section { margin-top: 4px; }
+    .credits-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+    }
+    .credits-header span { font-size: 14px; color: #68769f; font-weight: 600; }
+    .credits-header a { font-size: 14px; font-weight: 700; }
+    .credits-row { display: flex; justify-content: space-between; font-size: 15px; padding: 5px 0; }
+    .credits-row .cr-label { font-weight: 700; color: #1b2559; }
+    .credits-row .cr-value { color: #68769f; }
+
+    .cta-button {
+      display: block; width: 100%; padding: 16px;
+      background: #3965ff; color: #fff; border: none;
+      border-radius: 14px; font-size: 16px; font-weight: 700;
+      cursor: pointer; text-align: center; margin-top: 24px;
+      font-family: 'Poppins', sans-serif;
+      transition: background .2s;
+    }
+    .cta-button:hover { background: #2b50d9; }
+    .help-text { text-align: center; font-size: 13px; color: #a3aed0; margin-top: 14px; font-style: italic; }
+
+    /* ── Features Section ── */
+    .features-section {
+      max-width: 1200px; margin: 80px auto 0; padding: 0 32px 80px;
+    }
+    .section-label {
+      text-align: center; font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: #3965ff; margin-bottom: 10px;
+    }
+    .features-section h2 {
+      text-align: center; font-size: 30px; font-weight: 700; margin-bottom: 6px;
+      font-family: 'Poppins', sans-serif; color: #1b2559;
+    }
+    .section-sub { text-align: center; font-size: 15px; color: #a3aed0; margin-bottom: 56px; }
+
+    .features-grid {
+      display: grid; grid-template-columns: 160px 1fr 1fr; gap: 0;
+    }
+    .feature-category {
+      font-size: 14px; color: #a3aed0; padding: 28px 0; border-top: 1px solid #e2e8f0; font-weight: 600;
+    }
+    .feature-item {
+      padding: 28px 20px; border-top: 1px solid #e2e8f0;
+    }
+    .feat-icon { margin-bottom: 10px; display: block; line-height: 1; }
+    .feat-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #1b2559; }
+    .new-badge {
+      background: #3965ff; color: #fff; font-size: 10px;
+      padding: 2px 8px; border-radius: 4px; margin-left: 8px;
+      font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+    }
+    .feat-desc { font-size: 13px; color: #68769f; line-height: 1.5; }
+    .feat-link {
+      font-size: 13px; font-weight: 700; color: #3965ff;
+      display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;
+    }
+
+    /* ── Footer CTA ── */
+    .cta-footer {
+      background: #1b2559; padding: 64px 32px; text-align: center;
+    }
+    .cta-footer .avatars {
+      display: flex; justify-content: center; margin-bottom: 24px;
+    }
+    .avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 3px solid #1b2559; margin-left: -10px;
+    }
+    .avatar:first-child { margin-left: 0; }
+    .cta-footer h3 {
+      color: #fff; font-size: 26px; font-weight: 700; margin-bottom: 8px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .cta-footer p { color: #a3aed0; font-size: 15px; margin-bottom: 24px; }
+    .contact-btn {
+      display: inline-block; padding: 14px 32px;
+      background: #ef4444; color: #fff; border-radius: 12px;
+      font-size: 15px; font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+    }
+    .contact-btn:hover { background: #dc2626; text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .config-layout { grid-template-columns: 1fr; }
+      .summary-card { position: static; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .feature-category { grid-column: 1 / -1; padding: 16px 0 4px; font-weight: 700; }
+      .tier-selector { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ CONFIGURATOR ══════════════ -->
+<div class="config-header">
+  <div class="header-row">
+    <h1>Personalise your plan</h1>
+    <div class="billing-selector" id="billing-selector">
+      <button class="billing-opt active" data-billing="monthly" onclick="setBilling('monthly')">Monthly</button>
+      <button class="billing-opt" data-billing="annual-monthly" onclick="setBilling('annual-monthly')">Annual <span class="billing-badge">1 MONTH FREE</span></button>
+      <button class="billing-opt" data-billing="annual-upfront" onclick="setBilling('annual-upfront')">Annual upfront <span class="billing-badge">2 MONTHS FREE</span></button>
+    </div>
+  </div>
+  <div class="model-selector" id="model-selector">
+    <button class="model-opt active" data-model="agency" onclick="setModel('agency')">Agency Model</button>
+    <button class="model-opt" data-model="broker" onclick="setModel('broker')">Broker Model</button>
+  </div>
+</div>
+
+<div class="config-layout">
+  <div class="products-column" id="products-column">
+    <!-- Product cards rendered by JS -->
+  </div>
+
+  <!-- Summary Card -->
+  <div class="summary-card">
+    <div class="summary-header">
+      <span class="plan-label">Your plan</span>
+      <div class="plan-badge"><span class="plan-dot" id="plan-dot"></span> <span id="plan-name">Editor</span></div>
+    </div>
+    <div class="price-display">
+      <div class="price-amount">
+        <span class="currency">&pound;</span><span id="price">49</span>
+        <span id="strike" class="price-strikethrough" style="display:none;"></span>
+        <span class="period">/ month</span>
+      </div>
+      <div class="price-exvat">Excl. vat</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-section-title">Included</div>
+    <ul class="included-list" id="included-list"></ul>
+    <div class="more-users-note">Need more users? <a href="mailto:info@nodalview.com">Speak to our team</a></div>
+    <div class="summary-divider"></div>
+    <div class="credits-section">
+      <div class="credits-header"><span>Need more?</span><a href="https://help.nodalview.com/en/articles/6379815-nodalview-credits-simplifying-your-purchases-and-enhancing-your-listings" target="_blank">More about credits</a></div>
+      <div class="credits-row"><span class="cr-label">Photo</span><span class="cr-value">1 credit</span></div>
+      <div class="credits-row"><span class="cr-label">Video</span><span class="cr-value">15 credits</span></div>
+      <div class="credits-row"><span class="cr-label">Virtual visit</span><span class="cr-value">15 credits</span></div>
+      <div class="credits-row"><span class="cr-label">Floor plan</span><span class="cr-value">15 credits</span></div>
+      <div class="credits-row"><span class="cr-label">Home Staging</span><span class="cr-value">3 credits</span></div>
+    </div>
+    <button class="cta-button" onclick="saveAndShare()">Save and share this pricing</button>
+    <div class="enterprise-cta">Looking for a larger plan? <a href="mailto:info@nodalview.com">Speak to our team</a></div>
+  </div>
+</div>
+
+<!-- ══════════════ FEATURES (shared) ══════════════ -->
+<div class="features-section">
+  <div class="section-label">Core Features</div>
+  <h2>Features included in all plans</h2>
+  <p class="section-sub">Get 20+ features out of the box.</p>
+  <div class="features-grid">
+    <div class="feature-category">Main features</div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h8v9M12 3v9M16 3v18M12 8h9"/></svg></span><div class="feat-name">Floor Plans <span class="new-badge">PREMIUM</span></div><div class="feat-desc">Provide a unique way to visualise your properties by scanning and customising detailed floor plans.</div><a href="https://nodalview.com/floor-plan-app" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span><div class="feat-name">Media Editor</div><div class="feat-desc">Make quick adjustments and professional edits to your photos for flawless results.</div><a href="https://nodalview.com/ai-photo-editor" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-category"></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span><div class="feat-name">Smart Links</div><div class="feat-desc">Track user engagement on your listings and capture leads with SmartLinks and built-in forms.</div><a href="https://nodalview.com/virtual-tour-analytics" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span><div class="feat-name">Live sessions</div><div class="feat-desc">Host live virtual property viewings and connect with potential buyers in real-time.</div><a href="https://nodalview.com/remote-viewings" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-category">AI-powered</div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 16h6M9 12h6"/></svg></span><div class="feat-name">Home Staging</div><div class="feat-desc">Transform empty spaces into beautifully furnished rooms with ease.</div><a href="https://nodalview.com/ai-real-estate-photo-editing" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5a2 2 0 001.2 1.2L19.5 10l-4.5 1.5a2 2 0 00-1.2 1.2L12 17.5l-1.5-4.5a2 2 0 00-1.2-1.2L4.5 10l4.5-1.5a2 2 0 001.2-1.2L12 3z"/><path d="M19 15l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5L17 17l1.5-.5z"/></svg></span><div class="feat-name">Magic Eraser</div><div class="feat-desc">Effortlessly remove unwanted objects from your pictures to achieve a cleaner, more polished look.</div><a href="https://nodalview.com/ai-real-estate-photo-editing" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-category"></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15h5l2-6h6l2 6h5"/><path d="M6 15a6 6 0 0112 0"/><circle cx="12" cy="5" r="2"/></svg></span><div class="feat-name">Sky Replacement</div><div class="feat-desc">Don&rsquo;t wait for the perfect weather; enhance your property shots with a beautiful, sunny sky anytime.</div><a href="https://nodalview.com/ai-real-estate-photo-editing" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 16.4l-6.4 4.8 2.4-7.2-6-4.8h7.6z"/></svg></span><div class="feat-name">Magic Enhance</div><div class="feat-desc">Transform average photos into stunning visuals with advanced enhancement technology.</div><a href="https://nodalview.com/ai-real-estate-photo-editing" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-category">Collaboration</div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span><div class="feat-name">Teams</div><div class="feat-desc">Collaborate seamlessly with your team on shared assets.</div></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span><div class="feat-name">Branding</div><div class="feat-desc">Enhance your brand identity with custom logos, watermarks, and personalised colours for all your assets.</div></div>
+    <div class="feature-category">Insights</div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span><div class="feat-name">Statistics</div><div class="feat-desc">Gain powerful insights by tracking listing engagement and understanding diffusion trends.</div><a href="https://nodalview.com/virtual-tour-analytics" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9M3 15h18"/></svg></span><div class="feat-name">Traffic sources</div><div class="feat-desc">Identify your most effective communication channels.</div><a href="https://nodalview.com/virtual-tour-analytics" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-category">Support</div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><div class="feat-name">Online chat</div><div class="feat-desc">Connect with customer service quickly and resolve issues in real-time.</div></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div class="feat-name">Help centre</div><div class="feat-desc">Access guides and resources to help you navigate our platform effortlessly.</div><a href="https://help.nodalview.com/en/" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-category">Shop</div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div class="feat-name">Credits</div><div class="feat-desc">Unlock more possibilities with credits, allowing you to exceed standard limits and access premium features.</div><a href="https://help.nodalview.com/en/articles/6379815-nodalview-credits-simplifying-your-purchases-and-enhancing-your-listings" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+    <div class="feature-item"><span class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b2559" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></span><div class="feat-name">Kits</div><div class="feat-desc">Get everything you need to capture stunning property visuals with our professional kits.</div><a href="https://shop.nodalview.com/collections/kits" target="_blank" class="feat-link">Learn more &rarr;</a></div>
+  </div>
+</div>
+
+<div class="cta-footer">
+  <div class="avatars">
+    <div class="avatar" style="background:#f5a623;"></div>
+    <div class="avatar" style="background:#3965ff;"></div>
+    <div class="avatar" style="background:#ec4899;"></div>
+  </div>
+  <h3>Still have questions?</h3>
+  <p>Talk to one of our experts.</p>
+  <a href="mailto:info@nodalview.com" class="contact-btn">Contact us</a>
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   PRICING DATA — two models on one page (UK, GBP, monthly)
+     • broker : Partnership broker model (single fixed package per product)
+     • agency : Standard agency model (Starter / Standard / Pro tiers)
+   ════════════════════════════════════════ */
+
+/* ── SVG Icons ── */
+const ICONS = {
+  editing: '<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 4L8 28h16L16 4z" fill="#c084fc" opacity=".6"/><path d="M10 28L16 8l6 20" fill="#818cf8" opacity=".7"/><path d="M13 28l3-12 3 12" fill="#f472b6" opacity=".6"/></svg>',
+  photos: '<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="12" height="16" rx="2" fill="#93c5fd"/><rect x="10" y="4" width="12" height="16" rx="2" fill="#60a5fa" opacity=".8"/><rect x="16" y="8" width="12" height="16" rx="2" fill="#3b82f6" opacity=".6"/></svg>',
+  tours: '<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" fill="#fbcfe8"/><circle cx="16" cy="16" r="8" fill="#f9a8d4" opacity=".7"/><circle cx="16" cy="16" r="4" fill="#ec4899" opacity=".6"/></svg>',
+  videos: '<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="18" height="20" rx="3" fill="#c4b5fd"/><polygon points="26,12 26,20 30,18 30,14" fill="#8b5cf6" opacity=".7"/><circle cx="13" cy="16" r="4" fill="#7c3aed" opacity=".5"/></svg>',
+  floorplans: '<svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="3" fill="#a7f3d0"/><path d="M4 14h12v14M16 4v10M22 4v24M16 10h12" stroke="#059669" stroke-width="1.5" opacity=".5"/></svg>'
+};
+
+const productKeys = ['photos', 'tours', 'videos', 'floorplans'];
+
+/* Shared per-product presentation (icon, title, description, shop CTA). */
+const PRODUCT_META = {
+  photos: {
+    icon: ICONS.photos, title: 'Photos',
+    desc: 'Elevate your property photos to professional standards with our Smart Fusion technology. <a href="https://nodalview.com/real-estate-photography-hdr" target="_blank">Learn more</a>',
+    showShopCta: true
+  },
+  tours: {
+    icon: ICONS.tours, title: 'Virtual Tours',
+    desc: 'Offer immersive property experiences with interactive virtual tours. <a href="https://nodalview.com/virtual-tour-software" target="_blank">Learn more</a>',
+    showShopCta: false
+  },
+  videos: {
+    icon: ICONS.videos, title: 'Videos',
+    desc: 'Produce exceptional real estate videos effortlessly and highlight your properties like never before. <a href="https://nodalview.com/real-estate-video-app" target="_blank">Learn more</a>',
+    showShopCta: false
+  },
+  floorplans: {
+    icon: ICONS.floorplans, title: 'Floor Plans',
+    desc: 'Enhance your listings with professional floor plans to help buyers visualise the layout of your properties. <a href="https://nodalview.com/floor-plan-app" target="_blank">Learn more</a>',
+    showShopCta: false
+  }
+};
+
+/* Model-specific pricing. */
+const MODELS = {
+  broker: {
+    title: 'Partnership &ndash; Broker Model Pricing',
+    platform: 25,
+    baseCredits: 25,
+    tiered: false,
+    editingDesc: 'Edit photos, remove unwanted objects, add new furniture, or enhance skies &mdash; all with the power of AI technology. <a href="https://nodalview.com/ai-photo-editor" target="_blank">Learn more</a>',
+    products: {
+      photos:     { price: 24, assets: '80 Photos',       assetsLine: '80 photos/month',       credits: 10 },
+      tours:      { price: 18, assets: '3 Virtual Tours',  assetsLine: '3 virtual tours/month',  credits: 10 },
+      videos:     { price: 18, assets: '3 Videos',         assetsLine: '3 videos/month',         credits: 10 },
+      floorplans: { price: 36, assets: '3 Floor Plans',    assetsLine: '3 floor plans/month',    credits: 10 }
+    }
+  },
+  agency: {
+    title: 'Agency Model Pricing',
+    platform: 49,
+    baseCredits: 45,
+    tiered: true,
+    tierCredits: { starter: 10, standard: 20, pro: 30 },
+    noCreditProducts: ['floorplans'],
+    editingDesc: 'Edit photos, remove unwanted objects, add new furniture, or enhance skies &mdash; all with the power of AI Smart Fusion technology. <a href="https://nodalview.com/ai-photo-editor" target="_blank">Learn more</a>',
+    products: {
+      photos: {
+        prices: { starter: 30, standard: 54, pro: 96 },
+        tiers: {
+          starter:  { name: '100 photos/month', detail: 'Professional photos are key to selling your property', line: '100 photos/month' },
+          standard: { name: '200 photos/month', detail: 'Most popular choice', line: '200 photos/month' },
+          pro:      { name: '400 photos/month', detail: 'For high-volume agencies', line: '400 photos/month' }
+        }
+      },
+      tours: {
+        prices: { starter: 30, standard: 54, pro: 96 },
+        tiers: {
+          starter:  { name: '5 virtual tours/month', detail: 'Virtual tours trigger 50% more interest than photos', line: '5 virtual tours/month' },
+          standard: { name: '10 virtual tours/month', detail: 'Most popular choice', line: '10 virtual tours/month' },
+          pro:      { name: '20 virtual tours/month', detail: 'For high-volume agencies', line: '20 virtual tours/month' }
+        }
+      },
+      videos: {
+        prices: { starter: 30, standard: 54, pro: 96 },
+        tiers: {
+          starter:  { name: '5 videos/month', detail: 'Professional property videos', line: '5 videos/month' },
+          standard: { name: '10 videos/month', detail: '85% of customers prefer this', line: '10 videos/month' },
+          pro:      { name: '20 videos/month', detail: 'For high-volume agencies', line: '20 videos/month' }
+        }
+      },
+      floorplans: {
+        prices: { starter: 60, standard: 108, pro: 192 },
+        tiers: {
+          starter:  { name: '5 floor plans/month', detail: 'Accurate property layouts', line: '5 floor plans/month' },
+          standard: { name: '10 floor plans/month', detail: 'Most popular choice', line: '10 floor plans/month' },
+          pro:      { name: '20 floor plans/month', detail: 'For high-volume agencies', line: '20 floor plans/month' }
+        }
+      }
+    }
+  }
+};
+
+/* ════════════════════════════════════════
+   STATE
+   ════════════════════════════════════════ */
+const state = { model: 'agency', billing: 'monthly', products: {} };
+
+function initProductState() {
+  state.products = {};
+  productKeys.forEach(k => { state.products[k] = { on: false, tier: 'starter' }; });
+}
+
+/* ════════════════════════════════════════
+   RENDER PRODUCT CARDS
+   ════════════════════════════════════════ */
+function renderProducts() {
+  const M = MODELS[state.model];
+  const col = document.getElementById('products-column');
+  let html = '';
+
+  /* Editing suite — always included */
+  html += `
+    <div class="product-card active">
+      <div class="product-card-header">
+        <div class="product-title">
+          <div class="product-icon">${ICONS.editing}</div>
+          Editing Suite
+        </div>
+        <div class="product-label-row">
+          <span class="included-badge">Included in your plan at no extra cost</span>
+          <div class="switch-track on"><div class="switch-thumb"></div></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <p class="product-description">${M.editingDesc}</p>
+        <div class="package-detail">
+          <div class="package-badges">
+            <span class="pkg-badge credits">${M.baseCredits} AI credits</span>
+          </div>
+          <div class="pkg-price">&pound;${M.platform}<span style="font-size:14px;font-weight:500;color:#a3aed0;">/mo</span></div>
+        </div>
+      </div>
+    </div>`;
+
+  productKeys.forEach(key => {
+    const meta = PRODUCT_META[key];
+    const p = M.products[key];
+
+    html += `
+    <div class="product-card" id="card-${key}">
+      <div class="product-card-header">
+        <div class="product-title">
+          <div class="product-icon">${meta.icon}</div>
+          ${meta.title}
+        </div>
+        <div class="product-label-row">
+          <span id="label-${key}">Add to your plan, or pay as you go</span>
+          <div class="switch-track" id="toggle-${key}" onclick="toggleProduct('${key}')"><div class="switch-thumb"></div></div>
+        </div>
+      </div>
+      <div class="product-body">
+        <p class="product-description">${meta.desc}</p>
+        <div id="tiers-${key}" style="display:none;">`;
+
+    if (M.tiered) {
+      html += `<div class="tier-selector">`;
+      ['starter', 'standard', 'pro'].forEach((tier, i) => {
+        const info = p.tiers[tier];
+        html += `
+            <div class="tier-option${i === 0 ? ' selected' : ''}" data-tier="${tier}" onclick="selectTier('${key}','${tier}',this)">
+              <div class="tier-radio"></div>
+              <div class="tier-name">${info.name}</div>
+              <div class="tier-detail">${info.detail}</div>
+              <div class="tier-price" data-base="${p.prices[tier]}">+ &pound;${p.prices[tier]}/mo</div>
+            </div>`;
+      });
+      html += `</div>`;
+    } else {
+      html += `
+          <div class="package-detail">
+            <div class="package-badges">
+              <span class="pkg-badge assets">${p.assets}</span>
+              <span class="pkg-badge credits">${p.credits} AI credits</span>
+            </div>
+            <div class="pkg-price" data-base="${p.price}">+ &pound;${p.price}<span style="font-size:14px;font-weight:500;color:#a3aed0;">/mo</span></div>
+          </div>`;
+    }
+
+    if (meta.showShopCta) {
+      html += `
+          <div class="shop-cta">&#127903; Need a professional kit for shooting your photos and 360&deg; virtual tours? <a href="https://shop.nodalview.com/collections/kits" target="_blank">Visit our shop</a></div>`;
+    }
+
+    html += `
+        </div>
+      </div>
+    </div>`;
+  });
+
+  html += `
+    <div class="enterprise-card">
+      <div class="enterprise-card-content">
+        <div>
+          <div class="enterprise-card-title">Enterprise</div>
+          <p class="enterprise-card-desc">Need more volume, custom integrations, or a tailored solution for your agency?</p>
+        </div>
+        <a href="mailto:info@nodalview.com" class="enterprise-card-btn">Speak to our team &rarr;</a>
+      </div>
+    </div>`;
+
+  col.innerHTML = html;
+}
+
+/* ════════════════════════════════════════
+   INTERACTION FUNCTIONS
+   ════════════════════════════════════════ */
+function setModel(mode) {
+  state.model = mode;
+  document.querySelectorAll('.model-opt').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.model === mode);
+  });
+  initProductState();
+  renderProducts();
+  updateBilledPrices();
+  updateSummary();
+}
+
+function setBilling(mode) {
+  state.billing = mode;
+  document.querySelectorAll('.billing-opt').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.billing === mode);
+  });
+  updateBilledPrices();
+  updateSummary();
+}
+
+function toggleProduct(product) {
+  const p = state.products[product];
+  p.on = !p.on;
+  document.getElementById('toggle-' + product).classList.toggle('on', p.on);
+  document.getElementById('card-' + product).classList.toggle('active', p.on);
+  document.getElementById('tiers-' + product).style.display = p.on ? 'block' : 'none';
+  const label = document.getElementById('label-' + product);
+  label.textContent = p.on ? 'Included in your plan' : 'Add to your plan, or pay as you go';
+  if (p.on) label.classList.add('included-badge'); else label.classList.remove('included-badge');
+  updateSummary();
+}
+
+function selectTier(product, tier, el) {
+  state.products[product].tier = tier;
+  el.closest('.tier-selector').querySelectorAll('.tier-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  updateSummary();
+}
+
+function billedPrice(base) {
+  if (state.billing === 'annual-monthly') return Math.round(base * 11 / 12);
+  if (state.billing === 'annual-upfront') return Math.round(base * 10 / 12);
+  return base;
+}
+
+function updateBilledPrices() {
+  document.querySelectorAll('[data-base]').forEach(el => {
+    const v = billedPrice(parseInt(el.dataset.base));
+    if (el.classList.contains('pkg-price')) {
+      el.innerHTML = '+ &pound;' + v + '<span style="font-size:14px;font-weight:500;color:#a3aed0;">/mo</span>';
+    } else {
+      el.innerHTML = '+ &pound;' + v + '/mo';
+    }
+  });
+}
+
+function updateSummary() {
+  const M = MODELS[state.model];
+  let total = M.platform;
+  let aiCredits = M.baseCredits;
+
+  const items = ['All core features', 'Unlimited properties', 'Unlimited basic AI edits'];
+
+  for (const [key, prod] of Object.entries(state.products)) {
+    if (!prod.on) continue;
+    const p = M.products[key];
+    if (M.tiered) {
+      total += p.prices[prod.tier];
+      items.push(p.tiers[prod.tier].line);
+      if (!(M.noCreditProducts || []).includes(key)) aiCredits += M.tierCredits[prod.tier];
+    } else {
+      total += p.price;
+      aiCredits += p.credits;
+      items.push(p.assetsLine);
+    }
+  }
+
+  items.push(aiCredits + ' monthly AI credits');
+
+  const activeCount = Object.values(state.products).filter(p => p.on).length;
+  const dot = document.getElementById('plan-dot');
+  const name = document.getElementById('plan-name');
+  if (activeCount === 0) { dot.className = 'plan-dot'; name.textContent = 'Editor'; }
+  else if (activeCount === 1) { dot.className = 'plan-dot'; name.textContent = 'Discovery'; }
+  else if (activeCount === 2) { dot.className = 'plan-dot expert'; name.textContent = 'Professional'; }
+  else { dot.className = 'plan-dot expert'; name.textContent = 'Expert'; }
+
+  if (M.tiered) {
+    const u = Math.max(1, Math.floor(total / 50));
+    items.unshift(u + (u === 1 ? ' User included' : ' Users included'));
+  } else {
+    items.unshift('1 User included');
+  }
+
+  const display = billedPrice(total);
+  document.getElementById('price').textContent = display;
+  const strike = document.getElementById('strike');
+  if (state.billing !== 'monthly') { strike.textContent = '£' + total; strike.style.display = 'inline'; }
+  else { strike.style.display = 'none'; }
+
+  document.getElementById('included-list').innerHTML =
+    items.map(i => '<li><span class="check">&#10003;</span> ' + i + '</li>').join('');
+}
+
+/* ═══════ SAVE & SHARE ═══════ */
+function saveAndShare() {
+  const M = MODELS[state.model];
+  const modelLabel = state.model === 'broker' ? 'Partnership – Broker Model' : 'Agency Model';
+  const activeCount = Object.values(state.products).filter(p => p.on).length;
+  let planName = 'Editor';
+  if (activeCount === 1) planName = 'Discovery';
+  else if (activeCount === 2) planName = 'Professional';
+  else if (activeCount >= 3) planName = 'Expert';
+
+  let total = M.platform;
+  const billingLabels = { 'monthly': 'Monthly', 'annual-monthly': 'Annual — billed monthly (1 month free)', 'annual-upfront': 'Annual — paid upfront (2 months free)' };
+  const lines = [];
+  lines.push('Hi,');
+  lines.push('');
+  lines.push('I\'ve put together the following ' + modelLabel + ' configuration and would like to discuss next steps.');
+  lines.push('');
+  lines.push(planName + ' Plan — ' + billingLabels[state.billing]);
+  lines.push('');
+  lines.push('— Editing Suite (included): £' + M.platform + '/mo — ' + M.baseCredits + ' AI credits');
+
+  for (const [key, prod] of Object.entries(state.products)) {
+    if (!prod.on) continue;
+    const p = M.products[key];
+    total += M.tiered ? p.prices[prod.tier] : p.price;
+    if (M.tiered) {
+      lines.push('— ' + PRODUCT_META[key].title + ': ' + p.tiers[prod.tier].name + ' — £' + p.prices[prod.tier] + '/mo');
+    } else {
+      lines.push('— ' + PRODUCT_META[key].title + ': ' + p.assets + ' + ' + p.credits + ' AI credits — £' + p.price + '/mo');
+    }
+  }
+
+  lines.push('');
+  const display = billedPrice(total);
+  lines.push('Total: £' + display + '/mo' + (state.billing !== 'monthly' ? ' (£' + total + ' before discount)' : ''));
+
+  // Build shareable URL
+  const params = new URLSearchParams();
+  params.set('model', state.model);
+  params.set('billing', state.billing);
+  for (const [key, prod] of Object.entries(state.products)) {
+    if (prod.on) params.set(key, M.tiered ? prod.tier : 'on');
+  }
+  const shareUrl = window.location.origin + window.location.pathname + '?' + params.toString();
+  lines.push('');
+  lines.push('Full configuration: ' + shareUrl);
+  lines.push('');
+  lines.push('Could you let me know the next steps to get started?');
+  lines.push('');
+  lines.push('Thank you');
+
+  const subject = 'Nodalview Pricing — ' + modelLabel + ' — ' + planName + ' Plan (£' + display + '/mo)';
+  const body = lines.join('\n');
+  window.location.href = 'mailto:info@nodalview.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+
+/* ═══════ RESTORE FROM URL ═══════ */
+function restoreFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const model = params.get('model');
+  if (model === 'agency' || model === 'broker') setModel(model);
+  const billing = params.get('billing');
+  if (['annual-monthly', 'annual-upfront'].includes(billing)) setBilling(billing);
+
+  const M = MODELS[state.model];
+  productKeys.forEach(key => {
+    const val = params.get(key);
+    if (!val) return;
+    if (M.tiered) {
+      if (!['starter', 'standard', 'pro'].includes(val)) return;
+      toggleProduct(key);
+      if (val !== 'starter') {
+        state.products[key].tier = val;
+        const card = document.getElementById('card-' + key);
+        card.querySelectorAll('.tier-option').forEach(o => {
+          o.classList.toggle('selected', o.dataset.tier === val);
+        });
+        updateSummary();
+      }
+    } else if (val === 'on') {
+      toggleProduct(key);
+    }
+  });
+}
+
+/* ═══════ INIT ═══════ */
+initProductState();
+setModel('agency');
+restoreFromUrl();
+</script>
+</body>
+</html>
