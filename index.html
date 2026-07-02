@@ -639,7 +639,7 @@ const MODELS = {
       photos:     { price: 24, assets: '80 Photos',       assetsLine: '80 photos/month',       credits: 10 },
       tours:      { price: 18, assets: '3 Virtual Tours',  assetsLine: '3 virtual tours/month',  credits: 10 },
       videos:     { price: 18, assets: '3 Videos',         assetsLine: '3 videos/month',         credits: 10 },
-      floorplans: { price: 36, assets: '3 Floor Plans',    assetsLine: '3 floor plans/month',    credits: 10 }
+      floorplans: { price: 36, assets: '3 Floor Plans',    assetsLine: '3 floor plans/month',    credits: 0 }
     }
   },
   agency: {
@@ -766,7 +766,7 @@ function renderProducts() {
           <div class="package-detail">
             <div class="package-badges">
               <span class="pkg-badge assets">${p.assets}</span>
-              <span class="pkg-badge credits">${p.credits} AI credits</span>
+              ${p.credits > 0 ? `<span class="pkg-badge credits">${p.credits} AI credits</span>` : ''}
             </div>
             <div class="pkg-price" data-base="${p.price}">+ &pound;${p.price}<span style="font-size:14px;font-weight:500;color:#a3aed0;">/mo</span></div>
           </div>`;
