@@ -210,14 +210,14 @@
     /* ── Tier Selector (Agency model) ── */
     .tier-selector {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
       margin-top: 20px;
     }
     .tier-option {
       border: 1.5px solid #e2e8f0;
       border-radius: 14px;
-      padding: 18px;
+      padding: 14px 8px;
       cursor: pointer;
       transition: border-color .2s, box-shadow .2s;
       text-align: center;
@@ -244,9 +244,11 @@
       background: #3965ff;
       border-radius: 50%;
     }
-    .tier-name { font-size: 15px; font-weight: 700; color: #1b2559; margin-bottom: 4px; }
+    .tier-size { font-size: 11px; font-weight: 700; color: #3965ff; letter-spacing: .5px; margin-bottom: 4px; }
+    .tier-name { font-size: 14px; font-weight: 700; color: #1b2559; margin-bottom: 4px; }
     .tier-detail { font-size: 13px; color: #a3aed0; line-height: 1.4; }
     .tier-price { font-size: 13px; color: #3965ff; font-weight: 700; margin-top: 6px; }
+    .tier-note { font-size: 11px; font-style: italic; color: #a3aed0; text-align: right; margin-top: 8px; }
 
     /* ── Package detail (single Broker package per product) ── */
     .package-detail {
@@ -482,7 +484,7 @@
       .summary-card { position: static; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .feature-category { grid-column: 1 / -1; padding: 16px 0 4px; font-weight: 700; }
-      .tier-selector { grid-template-columns: 1fr; }
+      .tier-selector { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
     }
   </style>
 </head>
@@ -589,7 +591,7 @@
 /* ════════════════════════════════════════
    PRICING DATA — two models on one page (UK, GBP, monthly)
      • broker : Partnership broker model (single fixed package per product)
-     • agency : Standard agency model (Starter / Standard / Pro tiers)
+     • agency : Standard agency model (XS / S / M / L / XL tiers)
    ════════════════════════════════════════ */
 
 /* ── SVG Icons ── */
@@ -647,42 +649,17 @@ const MODELS = {
     platform: 49,
     baseCredits: 45,
     tiered: true,
-    tierCredits: { starter: 10, standard: 20, pro: 30 },
+    tierKeys: ['xs', 's', 'm', 'l', 'xl'],
+    tierLabels: { xs: 'XS', s: 'S', m: 'M', l: 'L', xl: 'XL' },
+    tierDetails: { xs: 'Starter', s: 'For solo agents', m: 'Most popular', l: 'For power users', xl: 'For large agencies' },
+    tierCredits: { xs: 5, s: 10, m: 20, l: 30, xl: 40 },
     noCreditProducts: ['floorplans'],
     editingDesc: 'Edit photos, remove unwanted objects, add new furniture, or enhance skies &mdash; all with the power of AI Smart Fusion technology. <a href="https://nodalview.com/ai-photo-editor" target="_blank">Learn more</a>',
     products: {
-      photos: {
-        prices: { starter: 30, standard: 54, pro: 96 },
-        tiers: {
-          starter:  { name: '100 photos/month', detail: 'Professional photos are key to selling your property', line: '100 photos/month' },
-          standard: { name: '200 photos/month', detail: 'Most popular choice', line: '200 photos/month' },
-          pro:      { name: '400 photos/month', detail: 'For high-volume agencies', line: '400 photos/month' }
-        }
-      },
-      tours: {
-        prices: { starter: 30, standard: 54, pro: 96 },
-        tiers: {
-          starter:  { name: '5 virtual tours/month', detail: 'Virtual tours trigger 50% more interest than photos', line: '5 virtual tours/month' },
-          standard: { name: '10 virtual tours/month', detail: 'Most popular choice', line: '10 virtual tours/month' },
-          pro:      { name: '20 virtual tours/month', detail: 'For high-volume agencies', line: '20 virtual tours/month' }
-        }
-      },
-      videos: {
-        prices: { starter: 30, standard: 54, pro: 96 },
-        tiers: {
-          starter:  { name: '5 videos/month', detail: 'Professional property videos', line: '5 videos/month' },
-          standard: { name: '10 videos/month', detail: '85% of customers prefer this', line: '10 videos/month' },
-          pro:      { name: '20 videos/month', detail: 'For high-volume agencies', line: '20 videos/month' }
-        }
-      },
-      floorplans: {
-        prices: { starter: 60, standard: 108, pro: 192 },
-        tiers: {
-          starter:  { name: '5 floor plans/month', detail: 'Accurate property layouts', line: '5 floor plans/month' },
-          standard: { name: '10 floor plans/month', detail: 'Most popular choice', line: '10 floor plans/month' },
-          pro:      { name: '20 floor plans/month', detail: 'For high-volume agencies', line: '20 floor plans/month' }
-        }
-      }
+      photos:     { unit: 'photos',        qty: { xs: 80, s: 100, m: 200, l: 400, xl: 800 }, prices: { xs: 24, s: 30,  m: 54,  l: 96,  xl: 168 } },
+      tours:      { unit: 'virtual tours', qty: { xs: 3,  s: 5,   m: 10,  l: 20,  xl: 40 },  prices: { xs: 18, s: 30,  m: 54,  l: 96,  xl: 168 } },
+      videos:     { unit: 'videos',        qty: { xs: 3,  s: 5,   m: 10,  l: 20,  xl: 40 },  prices: { xs: 18, s: 30,  m: 54,  l: 96,  xl: 168 } },
+      floorplans: { unit: 'floor plans',   qty: { xs: 3,  s: 5,   m: 10,  l: 20,  xl: 40 },  prices: { xs: 36, s: 60,  m: 108, l: 192, xl: 384 } }
     }
   }
 };
@@ -690,11 +667,23 @@ const MODELS = {
 /* ════════════════════════════════════════
    STATE
    ════════════════════════════════════════ */
+/* Expand agency qty tables into tier objects used by the renderer. */
+(function buildAgencyTiers() {
+  const A = MODELS.agency;
+  for (const p of Object.values(A.products)) {
+    p.tiers = {};
+    A.tierKeys.forEach(t => {
+      const line = p.qty[t] + ' ' + p.unit + '/month';
+      p.tiers[t] = { size: A.tierLabels[t], name: p.qty[t] + ' ' + p.unit, detail: A.tierDetails[t], line: line };
+    });
+  }
+})();
+
 const state = { model: 'agency', billing: 'monthly', products: {} };
 
 function initProductState() {
   state.products = {};
-  productKeys.forEach(k => { state.products[k] = { on: false, tier: 'starter' }; });
+  productKeys.forEach(k => { state.products[k] = { on: false, tier: 'xs' }; });
 }
 
 /* ════════════════════════════════════════
@@ -750,17 +739,18 @@ function renderProducts() {
 
     if (M.tiered) {
       html += `<div class="tier-selector">`;
-      ['starter', 'standard', 'pro'].forEach((tier, i) => {
+      M.tierKeys.forEach((tier, i) => {
         const info = p.tiers[tier];
         html += `
             <div class="tier-option${i === 0 ? ' selected' : ''}" data-tier="${tier}" onclick="selectTier('${key}','${tier}',this)">
               <div class="tier-radio"></div>
+              <div class="tier-size">${info.size}</div>
               <div class="tier-name">${info.name}</div>
               <div class="tier-detail">${info.detail}</div>
-              <div class="tier-price" data-base="${p.prices[tier]}">+ &pound;${p.prices[tier]}/mo</div>
+              <div class="tier-price" data-base="${p.prices[tier]}">+ &pound;${p.prices[tier]}</div>
             </div>`;
       });
-      html += `</div>`;
+      html += `</div><div class="tier-note">All quantities and prices are per month</div>`;
     } else {
       html += `
           <div class="package-detail">
@@ -851,7 +841,7 @@ function updateBilledPrices() {
     if (el.classList.contains('pkg-price')) {
       el.innerHTML = '+ &pound;' + v + '<span style="font-size:14px;font-weight:500;color:#a3aed0;">/mo</span>';
     } else {
-      el.innerHTML = '+ &pound;' + v + '/mo';
+      el.innerHTML = '+ &pound;' + v;
     }
   });
 }
@@ -930,7 +920,7 @@ function saveAndShare() {
     const p = M.products[key];
     total += M.tiered ? p.prices[prod.tier] : p.price;
     if (M.tiered) {
-      lines.push('— ' + PRODUCT_META[key].title + ': ' + p.tiers[prod.tier].name + ' — £' + p.prices[prod.tier] + '/mo');
+      lines.push('— ' + PRODUCT_META[key].title + ': ' + p.tiers[prod.tier].size + ', ' + p.tiers[prod.tier].line + ' — £' + p.prices[prod.tier] + '/mo');
     } else {
       lines.push('— ' + PRODUCT_META[key].title + ': ' + p.assets + ' + ' + p.credits + ' AI credits — £' + p.price + '/mo');
     }
@@ -973,9 +963,9 @@ function restoreFromUrl() {
     const val = params.get(key);
     if (!val) return;
     if (M.tiered) {
-      if (!['starter', 'standard', 'pro'].includes(val)) return;
+      if (!M.tierKeys.includes(val)) return;
       toggleProduct(key);
-      if (val !== 'starter') {
+      if (val !== 'xs') {
         state.products[key].tier = val;
         const card = document.getElementById('card-' + key);
         card.querySelectorAll('.tier-option').forEach(o => {
